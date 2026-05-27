@@ -28,11 +28,6 @@
 			<version>11.0.18</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.46</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -43,14 +38,6 @@
 				<version>3.15.0</version>
 				<configuration>
 					<release>${java.version}</release>
-					<proc>full</proc>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-							<version>1.18.46</version>
-						</path>
-					</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -64,7 +51,7 @@
 						<configuration>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>dev.rost.mcpulsorserver.App</mainClass>
+									<mainClass>dev.rost.mcpulsorserver.Server</mainClass>
 								</transformer>
 							</transformers>
 							<createDependencyReducedPom>false</createDependencyReducedPom>

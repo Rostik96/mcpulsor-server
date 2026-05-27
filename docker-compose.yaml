@@ -1,0 +1,19 @@
+name: mcpulsor-server-and-inspector
+
+services:
+  server-stdio:
+    image: mcpulsor-server:stdio
+    build:
+      target: stdio
+      args:
+        MODULE_DIR: mcpulsor-server         # build the server module
+        #MAIN_CLASS: edu.example.McpExampleServerApplication
+    container_name: mcpulsor-server-stdio
+    environment:
+      HOST: '0.0.0.0'
+      MCP_TRANSPORT: 'STDIO'
+      DANGEROUSLY_OMIT_AUTH: 'true'
+      ALLOWED_ORIGINS: 'http://localhost:6274,http://0.0.0.0:6274'
+    ports:
+      - '127.0.0.1:6274:6274'      # Inspector UI (stdio)
+      - '127.0.0.1:6277:6277'      # Inspector proxy (stdio)
