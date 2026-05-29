@@ -2,7 +2,7 @@
 FROM maven:3.9-eclipse-temurin-26 AS build
 
 WORKDIR /src
-COPY pom.xml .
+COPY pom.xml lombok.config ./
 RUN --mount=type=cache,target=/root/.m2 \
     mvn -q -DskipTests dependency:go-offline
 COPY src ./src
