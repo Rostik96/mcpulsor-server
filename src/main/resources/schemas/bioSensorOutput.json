@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "properties": {
+    "pulse": {
+      "type": "integer",
+      "description": "Current heart rate in beats per minute"
+    },
+    "state": {
+      "type": "string",
+      "description": "Health state assessment"
+    },
+    "sleepDeprivation": {
+      "type": "boolean",
+      "description": "Whether sleep deprivation is detected"
+    }
+  },
+  "required": ["pulse", "state", "sleepDeprivation"]
+}
