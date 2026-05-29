@@ -4,6 +4,8 @@ import io.modelcontextprotocol.client.McpClient;
 import io.modelcontextprotocol.client.transport.HttpClientStreamableHttpTransport;
 import io.modelcontextprotocol.spec.McpSchema;
 
+import java.util.Map;
+
 class Client {
     static void main() {
         var clientTransport = HttpClientStreamableHttpTransport
@@ -15,6 +17,7 @@ class Client {
         client.listTools().tools().forEach(System.out::println);
         client.callTool(McpSchema.CallToolRequest.builder()
                         .name("bioSensor")
+                        .arguments(Map.of("days", 7))
                         .build())
                 .content()
                 .forEach(System.out::println);

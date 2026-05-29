@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "days": {
+      "type": "integer",
+      "description": "Number of past days to include in the pulse reading request"
+    }
+  },
+  "required": ["days"]
+}

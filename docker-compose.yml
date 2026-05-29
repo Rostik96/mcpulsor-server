@@ -3,7 +3,9 @@ name: mcpulsor-server-and-inspector
 services:
   # -------- HTTP: Java MCP server -----------------------------
   server-http:
-    build: .
+    build:
+      context: .
+      target: http
     image: mcpulsor-server:http
     container_name: mcpulsor-server-http
     expose:
