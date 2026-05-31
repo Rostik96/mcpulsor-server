@@ -1,2 +1,15 @@
 server:
-  port: 8090
+  port: ${SERVER_PORT:8090}
+
+spring:
+  ai:
+    mcp:
+      server:
+        name: ${SPRING_AI_MCP_SERVER_NAME:mcpulsor}
+        version: ${SPRING_AI_MCP_SERVER_VERSION:0.0.1}
+        annotation-scanner:
+          enabled: ${SPRING_AI_MCP_SERVER_ANNOTATION_SCANNER_ENABLED:true}
+        protocol: ${SPRING_AI_MCP_SERVER_PROTOCOL:streamable}
+        type: ${SPRING_AI_MCP_SERVER_TYPE:sync}
+        streamable-http:
+          mcp-endpoint: ${SPRING_AI_MCP_SERVER_STREAMABLE_HTTP_MCP_ENDPOINT:/mcpulsor}

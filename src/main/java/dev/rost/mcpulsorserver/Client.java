@@ -15,8 +15,8 @@ class Client {
         var client = McpClient.sync(clientTransport).build();
         client.initialize();
         client.listTools().tools().forEach(System.out::println);
-        client.callTool(McpSchema.CallToolRequest.builder()
-                        .name("bioSensor")
+        client.callTool(McpSchema.CallToolRequest
+                        .builder("bioSensor")
                         .arguments(Map.of("days", 7))
                         .build())
                 .content()
