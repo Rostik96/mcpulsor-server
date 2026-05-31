@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the patient for whom the current diagnosis needs to be determined."
+    }
+  },
+  "required": ["name"]
+}

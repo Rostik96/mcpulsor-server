@@ -14,13 +14,14 @@ import java.util.Map;
 
 @Component
 @RequiredArgsConstructor
-class BioSensorTool implements McpTool {
+class BioSensor implements McpTool {
 
     private final McpJsonMapper mapper;
-    @Value("classpath:schemas/bioSensorInput.json")
+    @Value("classpath:tool/biosensor/input.json")
     private final Resource inputSchema;
-    @Value("classpath:schemas/bioSensorOutput.json")
+    @Value("classpath:tool/biosensor/output.json")
     private final Resource outputSchema;
+    private final PulseCalculator pulseCalculator;
 
 
     @Override
@@ -39,7 +40,7 @@ class BioSensorTool implements McpTool {
     public McpSchema.CallToolResult execute(McpSyncServerExchange exchange, McpSchema.CallToolRequest request) {
         return McpSchema.CallToolResult.builder()
                 .structuredContent(Map.of(
-                        "pulse", 128,
+                        "pulse", pulseCalculator.getPulse(null),
                         "state", "нормально",
                         "sleepDeprivation", true))
                 .build();

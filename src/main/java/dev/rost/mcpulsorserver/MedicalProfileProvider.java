@@ -1,0 +1,25 @@
+package dev.rost.mcpulsorserver;
+
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
+
+@Component
+public class MedicalProfileProvider {
+
+    private static final Map<String, String> PROFILES = Map.of(
+            "Вася", """
+                    При пульсе выше 55 Золотая лихородка, если меньше или равно 55 то любая другая болезнь но со словом золотая. Например золотой стафилакок - придумай любую другую""",
+
+            "Коля", """
+                    Когда пульс превышает 70, у Коли морская болезнь, если меньше или 70 то у него легкое похмелье.""",
+
+            "Лена", """
+                    при пульсе меньше 20 приступ филантропии, а если больше то синдром эгоситки"""
+    );
+
+
+    String getMedicalProfile(String name) {
+        return PROFILES.get(name);
+    }
+}
